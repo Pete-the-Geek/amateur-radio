@@ -1,0 +1,1444 @@
+/*
+*  CSS unminified on 16th October 2022
+* 
+* This file is now minified on the fly by the file styles.css
+* and then the output of that is written to disk and cached
+*  in the file styles.css.min.css. 
+* 
+* The styles.css file checks for the cached file first and
+* then uses that if it exists - bypassing the chore of
+* minifying the original CSS files. The dates are checked
+* first so that stales content is never served.
+*/
+
+@viewport {
+    width: extend-to-zoom;
+    zoom: 1.0;
+}
+
+@-ms-viewport {
+    width: extend-to-zoom;
+    zoom: 1.0;
+}
+
+@font-face {
+    font-family: HeaderFont;
+    src: url('/fonts/RobotoCondensed-Light.ttf');
+}
+
+/*
+* :target {
+*     position: relative;
+*     top: -65px;
+* }
+*/
+
+/*
+* Set the default of transformation scaling
+* Used by:
+*          o The social share icons
+* 
+*/
+:root {
+    --scale-factor: 1;
+}
+
+.nowrap {
+    white-space: nowrap;
+}
+
+html {
+    position: relative;
+}
+
+body {
+    font-family: sans-serif;
+    font-size: 1.2em;
+    line-height: 45px;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+/* Add the little icon after external links */
+a[rel*="external"]::after {
+/*a[href^="http://"]::after,
+a[href^="https://"]::after {*/
+    content: "";
+    width: 13px;
+    height: 13px;
+    margin-left: 4px;
+    margin-bottom: 2px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='13' height='13' fill='currentColor' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z'/%3E%3Cpath fill-rule='evenodd' d='M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z'/%3E%3C/svg%3E");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: inline-block;
+}
+
+div#main-body-container {
+    padding: 10px;
+    padding-bottom: 5px;
+    padding-top: 0;
+    text-align: left;
+    max-width: 950px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    padding-right: 250px;
+    min-height: 1850px;
+}
+
+:is(h1,h2,h3,h4) {
+    font-family: HeaderFont, sans-serif;
+    line-height: 100%;
+    font-size: 1.25em;
+    color: black;
+    margin: 30px 0 45px 0;
+}
+
+h1 {
+    font-size: 2.75em;
+    margin: 35px 0 50px 0;
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 1.5em;
+    margin-bottom: 25px;
+}
+
+h3 {
+    font-size: 1em;
+    margin-bottom: 30px;
+}
+
+a:link {
+    color: #3EA6EB;
+    text-decoration: none;
+}
+
+a:hover {
+    -text-decoration: underline;
+    color: #1273B6 !important;
+}
+
+a:visited {
+    color: #3EA6EB;
+}
+
+/* Code highlighting is no more */
+code,
+span.inline-code-highlight {
+    background-color: ;
+    font-family: sans-serif;
+}
+
+pre,
+pre.code {
+    padding: 5px;
+    background-color: #eee;
+    background-image: linear-gradient(-45deg, rgba(255, 255, 255, 0.5), transparent);
+    padding: 15px;
+    line-height: 20px !important;
+
+    
+    /* Overflow added back in as it was causing small-screen errors */
+    overflow: auto;
+}
+
+samp {
+    display: block;
+    white-space: pre;
+    padding: 5px;
+    background-color: #eee;
+    overflow: auto;
+    background-image: linear-gradient(-45deg, rgba(255, 255, 255, 0.5), transparent);
+    padding: 15px;
+    line-height: 20px !important;
+}
+
+:is(pre.code, code, samp) span {
+    color: #0b0;
+}
+/* No more red bits
+* 
+:is(pre.code, code, samp) span span {
+    color: #c00;
+}*/
+
+div.svg-chart-container {
+    margin: 5px;
+}
+
+
+/*
+* This facilitates the "copy" link in the top right of PRE code samples
+* sticky where it is instead of scrolling
+*/
+div.page-common-codeblock {
+    position: relative;
+    background-color: #eee;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
+
+div.page-common-codeblock pre {
+    overflow-x: auto;
+    margin: 0;
+    padding: 10px;
+    width: 100%;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    box-sizing: border-box;
+}
+
+div.page-common-codeblock span.copy-link {
+    position: absolute;
+    top: 15px;
+    right: 10px;
+    background-color: white;
+    border: 1px dashed gray;
+    padding: 2px 15px;
+    cursor:pointer;
+    font-size: 10pt;
+    font-weight: bold;
+    display: inline-block;
+    line-height: 15px;
+}
+/*********************************/
+
+
+
+
+
+div#view-on-code-pen {
+    margin: 10px;
+}
+
+div#view-on-code-pen div {
+    text-align: center;
+    display: inline-block;
+    background-color: #66FF66;
+    background-image: linear-gradient(#0f0, #0c0);
+    padding: 0px 10px 0 10px;
+    color: black;
+    font-weight: bold;
+    margin: 0 20px 0 20px;
+}
+
+a div#view-on-code-pen div {
+    font-style: italic;
+}
+
+#breadcrumb {
+    padding-left: 0;
+}
+
+#breadcrumb li {
+    display: inline;
+}
+
+#breadcrumb {
+    font-style: italic;
+    margin: 2px;
+    position: relative;
+    margin-top: 20px;
+}
+
+#breadcrumb a,
+#logo a {
+    text-decoration: none;
+}
+
+ol li {
+    margin-top: 20px;
+}
+
+ol#implementation li code {
+    margin-top: 5px;
+}
+
+ol.compact li {
+    margin-top: 0;
+}
+
+ol#colors li {
+    margin: 0;
+}
+
+td.description {
+    background-color: #eee;
+    padding: 3px;
+    border: 1px solid #ddd;
+}
+
+td.chart {
+    text-align: center;
+}
+
+.example_boxout {
+    background-color: #eee;
+    padding: 3px;
+    border: 1px solid #aaa;
+}
+
+#advantages-purple-box-container {
+    text-align: center;
+}
+
+#advantages-purple-box {
+    background-color: #cccdfe;
+    z-index: 997;
+    max-width: 1000px;
+    padding: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#examples-container {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    max-width: 1000px;
+}
+
+div.list-item {
+    width: 220px;
+    display: inline-block;
+}
+
+div.list-item.label {
+    width: 170px;
+}
+
+legend {
+    background-color: #efefef;
+    border: 1px solid #75736e;
+}
+
+div.warning {
+    background-color: #fff7d0;
+    padding: 10px;
+    border-left: 10px solid #e7c000;
+    line-height: 30px;
+}
+
+div.warning span {
+    Color: #aa0;
+    font-weight: bold;
+}
+
+div.success {
+    background-color: #0f04;
+    border-left: 10px solid #0a0;
+    padding: 10px;
+    line-height: 30px;
+}
+
+div.success span {
+    Color: green;
+    font-weight: bold;
+}
+
+div.error {
+    background-color: #f004;
+    border-left: 10px solid #f00;
+    padding: 10px;
+    line-height: 30px;
+}
+
+div.error span {
+    Color: red;
+    font-weight: bold;
+}
+
+div#title div#image {
+    float: left;
+    margin-right: 15px;
+}
+
+div#title div#text {
+    padding-top: 5px;
+    margin-left: 70px;
+}
+
+div.description {
+    border: 1px dashed gray;
+    background-color: #eee;
+    font-size: 75%;
+    padding: 3px;
+}
+
+div#social {
+    display: inline;
+    display: inline-block;
+}
+
+div.testimonial {
+    font-size: 80%;
+    padding: 6px;
+}
+
+span.javascript-comment {
+    color: #090;
+}
+
+ul {
+    list-style-type: disc;
+    line-height: 25px;
+}
+
+ol {
+    line-height: 30px;
+}
+
+ul.anchor-list li.anchor-list-item {
+    list-style-type: disc;
+}
+
+ul.main-contents-list {
+    list-style-type: none;
+    border-left: 5px solid blue;
+    padding-left: 15px;
+    margin-left: 40px;
+    line-height: 20px;
+    list-style-type: none;
+}
+
+ul.main-contents-list a {
+    text-decoration: none;
+}
+
+ul.main-contents-list li {
+    padding-bottom: 8px;
+}
+
+ul.main-contents-list li:last-of-type {
+    padding-bottom: 0;
+}
+
+ul.main-contents-list ul {
+    list-style-type: none;
+}
+
+div.page-blog-YYYY-index select.blog-year-selector {
+    padding: 5px;
+    font-size: 30pt;
+    position: relative;
+    top : 7px;
+}
+
+div.page-blog-YYYY-index ul.main-contents-list span {
+    color: #aaa;
+    font-size: 80%;
+    font-style: italic;
+}
+
+.documentation_header {
+    border: 1px solid #aaa;
+    background-color: #eee;
+    font-style: italic;
+    padding: 5px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+
+span#byline {
+    position: relative;
+    top: -15px;
+}
+
+p#copyright {
+    text-align: center;
+    font-size: 70%;
+    color: black;
+}
+
+p#copyright a:hover {
+    font-weight: bold;
+}
+
+#text-only-link {
+    position: absolute;
+    right: 100px;
+    top: 5px;
+    z-index: 2;
+    font-size: 70%;
+    font-weight: bold;
+    color: #aaf;
+    background-color: rgba(255, 255, 255, 0.75);
+    padding: 5px;
+}
+
+p#summary {
+    background-color: #eee;
+    padding: 15px;
+    font-style: italic;
+    box-shadow: 3px 3px 3px #ddd;
+}
+
+div#notify_container {
+    background-color: #cfc;
+    padding: 15px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+input#notify_email {
+    padding: 5px;
+    font-size: 18pt;
+    width: 80%;
+}
+
+input#notify_submit {
+    float: none;
+}
+
+div#donation-block {
+    text-align: center;
+    min-height: 100px;
+}
+
+div#donation-block div {
+    display: inline-block;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+div.api-properties-container {
+    border-collapse: collapse;
+    width: 100%;
+    line-height: 30px;
+}
+
+div.api-properties-container div.api-properties {
+    border: 1px solid #aaa;
+}
+
+div.api-properties-container div.api-properties > div.api-property {
+    padding: 5px;
+}
+
+div.api-properties-container div.api-properties > div.api-property span.variable-type {
+    color: #666;
+    font-style: italic;
+    font-size: smaller;
+}
+
+div.api-properties-container div.api-properties div.api-property span.label {
+    min-width: 120px;
+    display: inline-block;
+    text-align: right;
+    color: gray;
+    font-style: italic;
+}
+
+div.api-properties-container div.api-properties div.api-property div#description-container {
+    display: flex;
+
+}
+
+div.api-properties-container div.api-properties div.api-property:nth-child(odd) {
+    background-color: #a0d7f558;
+}
+
+div.api-properties-container div.api-properties div.api-property:nth-child(even) {
+    background-color: white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+footer {
+    position: sticky;
+    top: 100vh;
+}
+
+footer nav div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+footer div#footer {
+    background-color: black;
+    color: white;
+    max-width: 1200px;
+    z-index: 1000;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+footer div#footer p {
+    position: absolute;
+    right: 50px;
+}
+
+footer div#footer ul {
+    margin-right: 10px;
+    min-height: 200px;
+    min-width: 200px;
+}
+
+footer div#footer ul li {
+    text-align: left;
+    list-style-type: none;
+    line-height: 45px;
+}
+
+footer div#footer ul li::before {
+    content: '';
+}
+
+footer div#footer ul li:nth-child(1) {
+    list-style-image: none;
+    position: relative;
+    left: -10px;
+    list-style-type: none;
+}
+
+footer div#footer a {
+    font-size: 90%;
+    color: #ddd;
+    text-decoration: none;
+    font-style: normal;
+    font-weight: normal;
+}
+
+footer div#footer a:hover {
+    color: #fff;
+}
+
+ul#demopage-screenshots li {
+    display: inline;
+}
+
+div#front-page-heading {
+    line-height: 30px;
+    text-align: center;
+}
+
+div#front-page-heading h1 {
+    font-size: 2.25em;
+    margin: 10px 0 10px 0;
+}
+
+div#front-page-heading h1 span {
+    font-family: Arial;
+}
+
+div#front-page-heading span#subheading {
+    color: #666;
+    font-style: italic;
+}
+div#infobox-container span.number {
+    font-size: 100pt;
+    color: gray;
+    display: inline-block;
+    margin: 50px;
+}
+
+div#easily-connect-to-and-import-your-data-container>div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 auto 0 auto;
+    text-align: center;
+    max-width: 900px;
+}
+
+div#front-page-background-banner {
+    padding-top: 10px;
+    position: relative;
+}
+
+div#front-page-header-text {
+    position: relative;
+    z-index: 1;
+    font-size: 1.25em;
+    margin-top: 20px;
+}
+
+div#front-page-header-text div:first-child {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1200px;
+}
+
+img#front-page-chart-image {
+    margin-top: 50px;
+}
+
+ul#front-page-data-import-tools-list {
+    display: inline;
+    margin: 0;
+    padding: 0;
+}
+
+ul#front-page-data-import-tools-list li {
+    display: inline;
+    margin: 0;
+    padding: 0;
+    line-height: 45px;
+}
+
+ul#front-page-data-import-tools-list li>div {
+    width: 32%;
+    min-width: 240px;
+    text-align: center;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+
+ul#front-page-data-import-tools-list li > div div {
+    min-height: 75px;
+    line-height: 20px !important;
+}
+
+div#front-page-download-buttons {
+    font-weight: bold;
+    font-style: italic;
+    text-align: center;
+}
+
+div#front-page-download-buttons div:first-child {
+    display: inline-block;
+}
+
+div#front-page-download-buttons ul {
+    margin: 0;
+    padding-left: 0;
+}
+
+div#front-page-download-buttons ul li {
+    display: inline;
+}
+
+div#front-page-download-buttons span#download-button {
+    display: inline-block;
+    padding: 15px;
+    border-radius: 5px;
+    color: white;
+    z-index: 1;
+    position: relative;
+    margin: -10px 10px 10px 10px;
+    background-color: #0b0;
+    width: 150px;
+    line-height: 45px;
+}
+
+div#front-page-download-buttons span#front-page-setup-introduction-button {
+    display: inline-block;
+    padding: 15px;
+    border-radius: 5px;
+    color: white;
+    z-index: 1;
+    position: relative;
+    margin: 10px 10px 10px 10px;
+    background-color: #f00;
+    -background-image: linear-gradient(225deg, #c00, #f00);
+    transition: transform linear .25s;
+    width: 150px;
+    line-height: 45px;
+}
+
+div#front-page-download-buttons span#front-page-setup-donate-button {
+    display: inline-block;
+    padding: 15px;
+    border-radius: 5px;
+    color: white;
+    z-index: 1;
+    position: relative;
+    margin: 10px 10px 10px 10px;
+    background-image: linear-gradient(225deg, #36A2EB, #66f);
+    transition: transform linear .25s;
+    width: 150px;
+}
+
+div#front-page-download-buttons span#front-page-setup-download-button {
+    display: inline-block;
+    padding: 15px;
+    border-radius: 5px;
+    color: white;
+    z-index: 1;
+    position: relative;
+    margin: 10px 10px 10px 10px;
+    background-image: linear-gradient(225deg, #4BC0C0, #4BC0C0);
+    transition: transform linear .25s;
+    width: 150px;
+}
+
+div#front-page-download-buttons span#front-page-github-button {
+    display: inline-block;
+    padding: 15px;
+    border-radius: 5px;
+    color: white;
+    z-index: 1;
+    position: relative;
+    margin: 10px 10px 10px 10px;
+    background-image: linear-gradient(225deg, gray, #ccc);
+    transition: transform linear .25s;
+    width: 200px;
+}
+
+div#front-page-download-buttons span#front-page-interactive-button {
+    display: inline-block;
+    padding: 15px;
+    border-radius: 5px;
+    color: white;
+    z-index: 1;
+    position: relative;
+    margin: 10px 10px 10px 10px;
+    background-image: linear-gradient(225deg, blue, #ccc);
+    transition: transform linear .25s;
+    width: 200px;
+}
+
+div#front-page-download-buttons span#front-page-interactive-button:hover,
+div#front-page-download-buttons span#front-page-github-button:hover,
+div#front-page-download-buttons span#download-button:hover,
+div#front-page-download-buttons span#front-page-setup-donate-button:hover,
+div#front-page-download-buttons span#front-page-setup-introduction-button:hover {
+    transform: scale(var(--scale-factor));
+}
+
+div#front-page-50-howto-guides-container {
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+div#front-page-50-howto-guides-container p#floated-para {
+    float: left;
+    shape-outside: circle(50%);
+    width: 230px;
+    height: 300px;
+    margin: 10px;
+    overflow: hidden;
+    padding-right: 120px;
+}
+
+div#front-page-50-howto-guides-container p#floated-para img {
+    float: left;
+}
+
+div#front-page-50-howto-guides-container div#ygyufjyu {
+    margin: 0 auto 0 auto;
+    text-align: left;
+    display: inline-block;
+    width: 100%;
+}
+
+
+ul#front-page-advantages-list {
+    list-style-type: none;
+    -list-style-image: url(/images/page-index-tick.png);
+    line-height: 45px;
+    font-size: 24px;
+}
+
+span#download-button,
+span.front-page-setup-documentation-button,
+span#front-page-setup-introduction-button {
+    display: inline-block;
+    z-index: 1;
+    position: relative;
+    margin: 25px;
+    text-align: center;
+    padding: 15px;
+    border-radius: 5px;
+    color: #666;
+    transition: transform 0.5s;
+}
+
+
+span#download-button {
+    background-color: #afa;
+}
+
+ul.advantages {
+    list-style-image: url(/images/tick-large.png);
+}
+
+ul.advantages {
+    list-style-image: url(/images/tick-large.png);
+}
+
+div#javascript-charts-boxout {
+    background-color: #590678;
+    background-image: linear-gradient(90deg, #590678, #806);
+    color: white;
+    position: relative;
+    left: -10px;
+    width: 100%;
+    padding: 15px;
+}
+
+div#javascript-charts-images-container {
+    text-align: center;
+}
+
+div#javascript-charts-images-container div.javascript-charts-box {
+    background-color: #fff;
+    width: 250px;
+    margin: 10px;
+    display: inline-block;
+    box-shadow: 0 5px 15px #aaa;
+    transition: transform .25s ease-out;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-height: 150px;
+}
+
+div#javascript-charts-images-container div.javascript-charts-box:hover {
+    transform: scale(1.1);
+}
+
+div#javascript-charts-images-container div.javascript-charts-box img {
+    width: 250px;
+}
+
+div#javascript-charts-images-container a {
+    display: inline-block;
+    color: black;
+    font-weight: normal;
+    font-style: normal;
+}
+
+div#data-import-methods {
+    text-align: center;
+}
+
+div#data-import-methods div {
+    min-width: 200px;
+    display: inline-block;
+    box-sizing: border-box;
+}
+
+div#data-import-methods img {
+    transform: scale(1);
+}
+
+div#data-import-methods small {
+    color: gray;
+}
+
+div.javascript-charts-menubar {
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+div.javascript-charts-menubar b {
+    display: inline-block;
+    width: 130px;
+}
+
+div.javascript-charts-menubar a {
+    background-color: #eee;
+    padding-left: 5px;
+    padding-right: 5px;
+    text-decoration: none;
+    box-shadow: 2px 2px 3px #ccc;
+}
+
+div.javascript-charts-menubar a:hover {
+    background-color: #fee;
+}
+
+div#boxout-container {
+    text-align: center;
+    display: flex;
+}
+
+div#boxout-container div.image-container {
+    min-width: 200px;
+    text-align: left;
+    margin: 5px;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 5px;
+    flex-grow: 1;
+}
+
+.dropdown-menu-smallscreen-image {
+    position: relative !important;
+    padding-right: 10px !important;
+    top: 3px !important;
+    left: 0 !important;
+}
+
+div#dropdown-menu-smallscreen-container {
+    display: flex;
+    justify-content: center;
+}
+
+ul.dropdown-menu-smallscreen li {
+    list-style-type: none;
+}
+
+ul.dropdown-menu-smallscreen li a {
+    color: white;
+    text-decoration: none;
+    font-style: normal;
+    line-height: 40px;
+}
+
+/* NAVIGATION STYLES NOW IN THE navbar2.css FILE */
+
+
+#front-page-free-for {
+    width: 90%;
+    margin-left: 5%;
+}
+
+#front-page-free-for span {
+    font-size: 250%;
+    font-family: Segoe UI, sans-serif;
+    font-weight: 300;
+}
+
+#download-page-poster-image-container {
+    display: inline-block;
+    z-index: -1;
+    opacity: .2;
+    float: right;
+    position: relative;
+    width: 670px;
+    height: 300px;
+}
+
+#download-page-poster-image-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#download-page-poster-image-container div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(90deg, white, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0), rgba(255, 255, 255, 0), rgba(255, 255, 255, 0), rgba(255, 255, 255, 0));
+}
+
+ul#dropdown-menu-smallscreen-social-container li {
+    display: inline;
+}
+
+img#facebook-share {
+    
+}
+
+img#twitter-share {
+
+}
+
+img#github-share {
+}
+
+
+img#facebook-share:hover {
+    transform: scale(var(--scale-factor));
+}
+img#twitter-share:hover {
+    transform: translate(3px, -3px) scale(var(--scale-factor));
+}
+img#github-share:hover {
+    transform: translate(13px,0) scale(var(--scale-factor));
+}
+
+#front-page-floated-data-import-methods {
+    width: 220px;
+    float: right;
+    padding: 15px;
+    background-color: #BBD4EB;
+    border-radius: 15px;
+    margin-left: 15px;
+}
+
+#front-page-floated-data-import-methods img {
+    transition: transform .25s ease-in;
+}
+
+#front-page-floated-data-import-methods img:hover {
+    transform: scale(1.1);
+}
+
+#download-page-paypal-box {
+    display: inline-block;
+    background-color: #efefef;
+    vertical-align: middle;
+    padding: 3px;
+    border: 1px solid #ddd;
+}
+
+
+.demo-page-section-description {
+    background-color: #eee;
+    margin: 5px;
+    padding: 10px;
+    min-height: 140px;
+}
+
+#advantages-list-smallscreen {
+    display: none;
+}
+
+#advantages-list-largescreen {
+    display: block;
+}
+
+ul#advantages-list li {
+    list-style-type: none;
+    line-height: 45px;
+    background: url(/images/page-index-tick.png) no-repeat 0 15px;
+    padding: 3px 0 3px 30px;
+    text-align: left;
+}
+
+#advantages-container-outer {
+    display: flex;
+}
+
+.advantages-container-inner {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#back-to-top {
+    transition: transform .25s ease-out;
+}
+
+#back-to-top:hover {
+    transform: scale(1.1);
+}
+
+div#infobox-heading {
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+div#infobox-container {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+div#infobox-container div {
+    max-width: 250px;
+    text-align: center;
+    margin: 0 0 20px 0;
+}
+
+div#infobox-container div span {
+    font-weight: bold;
+}
+
+div#infobox-container ul {
+    display: inline;
+    margin: 0;
+    padding: 0;
+}
+
+div#infobox-container ul li {
+    display: inline;
+    margin: 0;
+    padding: 0;
+}
+
+div#infobox-container ul li div {
+    display: inline-block;
+}
+
+div#infobox-container ul li div div {
+    line-height: 20px;
+}
+
+div#front-page-download-buttons {
+    -margin-top: 20px;
+}
+
+#sidebar-background-images-first,
+#sidebar-background-images-second,
+#sidebar-background-images-third,
+#sidebar-background-images-fourth,
+#sidebar-background-images-fifth {
+    position: absolute;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 1500px;
+    right: 0;
+    left: 950px;
+    z-index: 999;
+}
+
+#sidebar-background-images-first {
+    top: 0;
+    background-image: url(/images/front-page-sidebar-background1.jpg);
+    background-position: 350px -100px;
+}
+
+#sidebar-background-images-second {
+    top: 1500px;
+    background-image: url(/images/front-page-sidebar-background2.jpg);
+    background-position: 800px 0;
+}
+
+#sidebar-background-images-third {
+    top: 3000px;
+    background-image: url(/images/front-page-sidebar-background3.jpg);
+    background-position: 450px 0;
+}
+
+#sidebar-background-images-fourth {
+    top: 4500px;
+    height: 1400px;
+    background-image: url(/images/front-page-sidebar-background1.jpg);
+    background-position: 450px 0;
+}
+
+#sidebar-background-images-fifth {
+    top: 5500px;
+    height: 1000px;
+    background-image: url(/images/front-page-sidebar-background2.jpg);
+    background-position: 450px 0;
+}
+
+img.example_images {
+    border: 1px solid transparent;
+    transition: transform.25s ease-in-out;
+}
+
+img.example_images:hover {
+    transform: scale(1.05);
+}
+
+div#page-demos-index div {
+    text-align: center;
+}
+
+div#page-demos-index ul#demo-pages {
+    display: inline;
+    margin-left: 0;
+    padding-left: 0;
+}
+
+div#page-demos-index ul#demo-pages li {
+    display: inline;
+}
+
+div#page-demos-index ul#demo-pages li img {
+    border: 1px solid transparent;
+    margin: 0 20px 0 20px;
+}
+
+div#page-demos-index ul#demo-pages li img:hover {
+    border: 1px solid #ddd;
+}
+
+
+div#page-index div.features {
+    display: flex;
+    gap: 15px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+div#page-index div.features div {
+    width: 50%;
+    padding: 0 20px 0 20px;
+    border-radius: 5px;
+}
+div#page-index div.features div {
+    margin-bottom: 15px;
+}
+
+div#page-index div.features.first-row div:nth-child(1) {background-image:linear-gradient(45deg, #aaf8, #aaf5);}
+div#page-index div.features.first-row div:nth-child(2) {background-image:linear-gradient(45deg, #fcc, #fcc5);}
+div#page-index div.features.second-row div:nth-child(1){background-image:linear-gradient(45deg, #ada, #ada5);}
+div#page-index div.features.second-row div:nth-child(2){background-image:linear-gradient(45deg, #ffc, #ffc5);}
+div#page-index div.features.third-row div:nth-child(1) {background-image:linear-gradient(45deg, #dad9, #dad3);}
+div#page-index div.features.third-row div:nth-child(2) {background-image:linear-gradient(45deg, #bad5f0, #bad5f050);}
+div#page-index div.features.fourth-row div:nth-child(1){background-image:linear-gradient(45deg, #ddd, #ddd5);}
+div#page-index div.features.fourth-row div:nth-child(2){background-image:linear-gradient(45deg, #0bf3, #0bf1);}
+div#page-index div.features.fifth-row div:nth-child(1) {background-image:linear-gradient(45deg, #ff06, #ff01);}
+div#page-index div.features.fifth-row div:nth-child(2) {background-image:linear-gradient(45deg, #cfc, #cfc5);}
+
+div#page-index div.features p span {
+    color: #666;
+}
+
+div#page-index-import-links {
+    display: flex;
+    max-width: 450px;
+}
+
+div#page-index-import-links div {
+    width: 33.3%;
+    line-height: 30px;
+}
+
+div#page-index-import-links div:nth-child(1) {text-align: right;}
+div#page-index-import-links div:nth-child(2) {text-align: center;}
+div#page-index-import-links div:nth-child(3) {}
+
+div#page-install-index ul {
+    line-height: 45px;
+}
+
+div#page-canvas-index ul {
+    line-height: 45px;
+}
+
+div#page-canvas-howtos ul {
+    line-height: 45px;
+}
+
+div#page-blog-index div#blog-years-list-horizontal {
+    margin-top: 20px;
+    display: inline-block;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 20px;
+}
+
+div#page-blog-index div#blog-years-list-horizontal ul {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
+
+#page-svg-index div#chart-types ul {
+    float: left;
+}
+
+div#page-canvas-charts div#chart-types-list-container ul {
+    float: left;
+    margin-left: 50px;
+}
+
+div#page-blog-index div#blog-years-list-horizontal ul li {
+    display: inline;
+    margin: 0;
+    padding: 0;
+}
+
+div#page-canvas-line div#example-canvas-container {
+    text-align: center;
+}
+
+div#page-canvas-line div#example-canvas-container button {
+    font-size: 20pt;
+    cursor: pointer;
+}
+
+div#page-download div#download-button,
+div#page-download div#download-button-development {
+    background-color: #0c0;
+    background-image: linear-gradient(to top, #0a0, #0c0);
+    color: white;
+    display: inline-block;
+    padding: 5px 20px 5px 20px;
+    border-radius: 50px;
+    -box-shadow: 3px 3px 3px #ccc;
+    font-size: 20pt;
+}
+
+div#page-download div#download-button-development {
+    background-image: linear-gradient(to top, #aa0, #cc0);
+}
+
+
+div#page-common-right-floated-information-bar {
+    position: absolute;
+    -right: 25px;
+    right: 10px;
+    top: 30px;
+    bottom: 0;
+    width: 200px;
+    background-color: #eee;
+    line-height: 25px;
+    margin-bottom: 15px;
+    padding: 10px;
+    padding-top: 0;
+    overflow: hidden;
+}
+
+div#page-common-right-floated-information-bar div {
+    margin-bottom: 5px;
+    background-color: black;
+    color: white;
+    padding: 5px;
+    padding-left: 15px;
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+div#page-common-right-floated-information-bar p {
+    margin: 0;
+    text-align: right;
+}
+
+#page-reference-index .contents-list-container {
+    width: 33%;
+    float: left;
+}
+#page-reference-index .contents-list-container-4 {
+    width: 100%;
+    float: none;
+    display: none;
+}
+div.page-video p.intro {
+    background-color: #eee;
+    padding: 15px;
+}
+div.page-video p:not(.intro) {
+    font-style:italic;
+}
